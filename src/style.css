@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap");
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 14px;
+  line-height: 1.42;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.card {
+  height: 270px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  color: #fff;
+  font-size: 16px;
+  line-height: normal;
+}
+
+.card__side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: perspective(2000px) rotateY(0deg) rotateX(0deg) rotate(0deg);
+          transform: perspective(2000px) rotateY(0deg) rotateX(0deg) rotate(0deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: all 0.8s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  transition: all 0.8s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+}
+
+.card__side.front {
+  background-color: #232323;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+}
+
+.card__side.back {
+  background-color: #232323;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+  -webkit-transform: perspective(2000px) rotateY(-180deg) rotateX(0deg) rotate(0deg);
+          transform: perspective(2000px) rotateY(-180deg) rotateX(0deg) rotate(0deg);
+  z-index: 2;
+}
+
+.card.active .front {
+  -webkit-transform: perspective(1000px) rotateY(180deg) rotateX(0deg) rotateZ(0deg);
+          transform: perspective(1000px) rotateY(180deg) rotateX(0deg) rotateZ(0deg);
+}
+
+.card.active .back {
+  -webkit-transform: perspective(1000px) rotateY(0) rotateX(0deg) rotateZ(0deg);
+          transform: perspective(1000px) rotateY(0) rotateX(0deg) rotateZ(0deg);
+}
+
+.card__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.chip {
+  height: 40px;
+  width: 50px;
+  background-color: silver;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.chip .hor {
+  height: calc(100% / 3);
+  border-top: 1px solid #232323;
+}
+
+.chip .hor:first-child {
+  border-top: none;
+}
+
+.chip .ver {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 100%;
+  width: calc(100% / 3);
+  background-color: silver;
+}
+
+.chip .ver:before {
+  content: "";
+  width: 1px;
+  background-color: #232323;
+  position: absolute;
+  height: 100%;
+  left: 0;
+}
+
+.chip .ver:after {
+  content: "";
+  width: 1px;
+  background-color: #232323;
+  position: absolute;
+  height: calc(100% - (100% / 3));
+  right: 0;
+  bottom: 0;
+}
+/*# sourceMappingURL=style.css.map */
