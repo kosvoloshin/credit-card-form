@@ -148,4 +148,9 @@ body {
   right: 0;
   bottom: 0;
 }
+
+.logo > img {
+  max-height: 40px;
+  width: auto;
+}
 /*# sourceMappingURL=style.css.map */

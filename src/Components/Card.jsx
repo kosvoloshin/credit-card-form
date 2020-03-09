@@ -1,4 +1,5 @@
 import React from "react";
+import visa from "../Assets/images/visa.png";
 
 const Card = ({ cardNumber, cardHolder, month, year, cvv, isFlip }) => {
     return (
@@ -12,8 +13,7 @@ const Card = ({ cardNumber, cardHolder, month, year, cvv, isFlip }) => {
                         <span className="ver" />
                     </div>
                     <div className="card__col logo">
-                        {/* <img src="" alt="card-logo" /> */}
-                        todo
+                        <img src={visa} alt="card-logo" />
                     </div>
                 </div>
                 <div className="card__row">

@@ -138,3 +138,10 @@ $card_bg: #232323;
         }
     }
 }
+
+.logo {
+    & > img {
+        max-height: 40px;
+        width: auto;
+    }
+}
