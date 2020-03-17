@@ -5,10 +5,11 @@ import Card from "../Components/Card";
 class App extends Component {
     state = {
         cardNumber: "",
-        cardHolder: "",
-        month: "",
-        year: "",
-        cvv: "",
+        cardNumberMask: "#### #### #### ####",
+        cardHolder: "Konstantin Voloshyn",
+        month: "09",
+        year: "24",
+        cvv: "***",
         isFlip: false,
     };
 
@@ -29,12 +30,13 @@ class App extends Component {
     };
 
     render() {
-        const { cardNumber, cardHolder, month, year, cvv, isFlip } = this.state;
+        const { cardNumber, cardNumberMask, cardHolder, month, year, cvv, isFlip } = this.state;
 
         return (
             <div className="wrapper">
                 <Card
                     cardNumber={cardNumber}
+                    cardNumberMask={cardNumberMask}
                     cardHolder={cardHolder}
                     month={month}
                     year={year}
