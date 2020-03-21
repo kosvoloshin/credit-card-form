@@ -1,29 +1,19 @@
-export const months = [
-    {
-        value: "jan",
-        label: "1",
-    },
-    {
-        value: "feb",
-        label: "2",
-    },
-    {
-        value: "mar",
-        label: "3",
-    },
-];
+export const genereteMonths = () => {
+    return Array.from({ length: 12 }, (v, k) => k + 1).map(num => {
+        return num <= 9 ? `0${num}` : num;
+    });
+};
 
-export const years = [
-    {
-        year: "2020",
-    },
-    {
-        year: "2021",
-    },
-    {
-        year: "2022",
-    },
-];
+export const generateYears = () => {
+    let arrYears = [];
+    const currentYear = new Date().getFullYear();
+
+    for (let i = currentYear; i <= currentYear + 10; i++) {
+        arrYears.push(i);
+    }
+
+    return arrYears;
+};
 
 export const cardLogo = num => {
     const logoPath = "https://raw.githubusercontent.com/kosvoloshin/credit-card-form/master/src/Assets/images/";
@@ -57,6 +47,18 @@ export const setMask = (mask, value) => {
     let valueArr = value.split("");
 
     valueArr.map((item, index) => {
+        if (/^(4|5|6|7)$/.test(index)) {
+            return (maskArr[index + 1] = "*");
+        }
+
+        if (/^(8|9|10|11)$/.test(index)) {
+            return (maskArr[index + 2] = "*");
+        }
+
+        if (/^(12|13|14|15)$/.test(index)) {
+            return (maskArr[index + 3] = item);
+        }
+
         return (maskArr[index] = item);
     });
 

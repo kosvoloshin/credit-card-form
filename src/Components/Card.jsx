@@ -1,20 +1,15 @@
 import React from "react";
-import { cardLogo, setMask } from "../Utils/utils";
+import { setMask } from "../Utils/utils";
+import CardLogo from "./CardLogo";
+import Chip from "./Chip";
 
 const Card = ({ cardNumber, cardNumberMask, cardHolder, month, year, cvv, isFlip }) => {
     return (
         <div className={`card ${isFlip ? "active" : ""}`}>
             <div className="card__side front">
                 <div className="card__row">
-                    <div className="card__col chip">
-                        <span className="hor" />
-                        <span className="hor" />
-                        <span className="hor" />
-                        <span className="ver" />
-                    </div>
-                    <div className="card__col logo">
-                        <img src={cardLogo(cardNumber)} alt="card-logo" />
-                    </div>
+                    <Chip />
+                    <CardLogo cardNumber={cardNumber} />
                 </div>
                 <div className="card__row">
                     <div className="card__number">
@@ -25,26 +20,24 @@ const Card = ({ cardNumber, cardNumberMask, cardHolder, month, year, cvv, isFlip
                             : setMask(cardNumberMask, cardNumber).map((item, index) => {
                                   return <span key={index}>{item}</span>;
                               })}
-
-                        {console.log(setMask(cardNumberMask, cardNumber))}
                     </div>
                 </div>
                 <div className="card__row">
                     <div className="card__col holder">
                         <div className="card__label">Card Holder</div>
-                        <div className="card__result">{cardHolder}</div>
+                        <div className="card__result">{!cardHolder ? "Full Name" : cardHolder}</div>
                     </div>
                     <div className="card__col expires">
-                        <div className="card__label">Card Holder</div>
+                        <div className="card__label">Expires</div>
                         <div className="card__result">
-                            <span>{month}</span>/<span>{year}</span>
+                            <span>{!month ? "MM" : month}</span>/<span>{!year ? "YY" : year.slice(2, 4)}</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="card__side back">
-                back side
-                <div>{cvv}</div>
+                <div className="card__cvv">{!cvv ? "CVV" : cvv.replace(/./g, "*")}</div>
+                <CardLogo cardNumber={cardNumber} />
             </div>
         </div>
     );
