@@ -1,7 +1,21 @@
 import React from "react";
+import PropTypes from "prop-types";
 import FormRow from "./FormRow";
 import FormBlock from "./FormBlock";
-import { genereteMonths, generateYears } from "../Utils/utils";
+import { genereteMonths, generateYears } from "../../Utils/utils";
+
+const propTypes = {
+    handlerSubmit: PropTypes.func.isRequired,
+    handlerChangeCardNumber: PropTypes.func.isRequired,
+    handlerChangeValue: PropTypes.func.isRequired,
+    handlerChangeCvv: PropTypes.func.isRequired,
+    handlerFlip: PropTypes.func.isRequired,
+    cardNumber: PropTypes.string.isRequired,
+    cardHolder: PropTypes.string.isRequired,
+    month: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+    cvv: PropTypes.string.isRequired,
+};
 
 const Form = ({
     handlerSubmit,
@@ -108,5 +122,7 @@ const Form = ({
         </form>
     );
 };
+
+Form.propTypes = propTypes;
 
 export default Form;

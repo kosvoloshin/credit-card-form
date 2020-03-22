@@ -1,4 +1,3 @@
-// @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap");
 
 html,
@@ -7,7 +6,6 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    // font-family: "Roboto Condensed", sans-serif;
     font-family: "Rubik", sans-serif;
     font-size: 14px;
     line-height: 1.42;
@@ -37,9 +35,9 @@ $card_bg: #232323;
 .wrapper {
     display: flex;
     flex-direction: column;
-    max-width: 560px;
+    max-width: rem(660px);
     margin: 0 auto;
-    padding: 50px 0;
+    padding: em(50/14);
 }
 
 .content {
@@ -49,31 +47,34 @@ $card_bg: #232323;
 }
 
 .card {
-    height: 270px;
-    max-width: 460px;
+    height: rem(270px);
+    max-width: rem(460px);
     width: 100%;
-    margin: 0 auto 50px;
+    margin: 0 auto em(50/16);
     position: relative;
     color: #fff;
-    font-size: 16px;
+    font-size: em(16/14);
     line-height: normal;
 
     &__side {
         position: absolute;
         top: 0;
         left: 0;
-        border-radius: 15px;
-        padding: 30px;
+        border-radius: em(15/16);
+        padding: em(30/16);
         width: 100%;
         height: 100%;
         backface-visibility: hidden;
         transform: perspective(2000px) rotateY(0deg) rotateX(0deg) rotate(0deg);
         transform-style: preserve-3d;
         transition: all 0.8s cubic-bezier(0.71, 0.03, 0.56, 0.85);
-        box-shadow: 0 20px 60px 0 rgba(14, 42, 90, 0.55);
+        box-shadow: 0 em(20/16) em(60/16) 0 rgba(14, 42, 90, 0.55);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
 
         &.front {
             background-color: $card_bg;
@@ -86,15 +87,15 @@ $card_bg: #232323;
             transform: perspective(2000px) rotateY(-180deg) rotateX(0deg) rotate(0deg);
             z-index: 2;
             align-items: flex-end;
-            padding-top: 110px;
+            padding-top: em(110/16);
             &:after {
                 content: "";
                 background-color: rgba(0, 0, 19, 0.8);
                 position: absolute;
                 left: 0;
                 right: 0;
-                top: 30px;
-                height: 50px;
+                top: em(30/16);
+                height: em(50/16);
             }
         }
     }
@@ -122,19 +123,19 @@ $card_bg: #232323;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                max-width: 300px;
+                max-width: em(300/16);
             }
         }
         &.expires {
             & .card__result > span {
-                width: 30px;
+                width: em(30/16);
                 display: inline-block;
             }
         }
     }
 
     &__number {
-        font-size: 28px;
+        font-size: em(28/16);
         width: 100%;
 
         & > span {
@@ -144,21 +145,21 @@ $card_bg: #232323;
     }
 
     &__label {
-        font-size: 13px;
+        font-size: em(13/16);
         line-height: normal;
-        margin-bottom: 5px;
+        margin-bottom: em(5/13);
     }
 
     &__result {
-        font-size: 16px;
-        letter-spacing: 2px;
+        font-size: 1em;
+        letter-spacing: em(2/16);
         text-transform: uppercase;
     }
 
     &__cvv {
         background-color: #fff;
         color: #000;
-        padding: 16px;
+        padding: 1em;
         display: block;
         width: 100%;
         text-align: right;
@@ -237,25 +238,28 @@ $card_bg: #232323;
         width: 100%;
         cursor: pointer;
         transition: 0.3s;
+        outline: none;
 
-        &:hover {
+        &:hover,
+        &:focus {
             box-shadow: 0px 8px 16px rgba(0, 128, 255, 0.3);
         }
     }
 }
 
 .chip {
-    height: 39px;
-    width: 48px;
+    height: rem(39px);
+    width: rem(48px);
     background-color: silver;
-    border-radius: 5px;
+    border-radius: em(5/16);
     display: flex;
     flex-direction: column;
     position: relative;
+    overflow: hidden;
 
     & .hor {
         height: calc(100% / 3);
-        border-top: 1px solid $card_bg;
+        border-top: rem(1px) solid $card_bg;
 
         &:first-child {
             border-top: none;
@@ -273,7 +277,7 @@ $card_bg: #232323;
 
         &:before {
             content: "";
-            width: 1px;
+            width: rem(1px);
             background-color: $card_bg;
             position: absolute;
             height: 100%;
@@ -282,7 +286,7 @@ $card_bg: #232323;
 
         &:after {
             content: "";
-            width: 1px;
+            width: rem(1px);
             background-color: $card_bg;
             position: absolute;
             height: calc(100% - (100% / 3));
@@ -294,7 +298,73 @@ $card_bg: #232323;
 
 .logo {
     & > img {
-        max-height: 40px;
+        max-height: em(40/16);
         width: auto;
+    }
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .wrapper {
+        padding: em(30/14);
+        max-width: rem(485px);
+    }
+
+    .content {
+        padding: em(30/14);
+    }
+
+    .card {
+        height: rem(250px);
+        max-width: rem(365px);
+        margin-bottom: em(30/16);
+
+        &__side {
+            padding: em(25/16);
+        }
+
+        &__number {
+            font-size: em(22/16);
+        }
+
+        &__result {
+            font-size: em(14/16);
+        }
+
+        &__cvv {
+            font-size: em(14/16);
+        }
+    }
+
+    .form {
+        &__input {
+            font-size: rem(14px);
+        }
+
+        &__submit {
+            font-size: rem(11px);
+        }
+    }
+}
+
+@media (max-width: 479px) {
+    html,
+    body {
+        font-size: 12px;
+    }
+
+    .wrapper {
+        width: 100%;
+        max-width: 380px;
+    }
+
+    .content {
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .card {
+        max-width: 100%;
     }
 }

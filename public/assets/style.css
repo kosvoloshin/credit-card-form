@@ -28,9 +28,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  max-width: 560px;
+  max-width: 47.14286rem;
   margin: 0 auto;
-  padding: 50px 0;
+  padding: 3.57143em;
 }
 
 .content {
@@ -41,13 +41,13 @@ body {
 }
 
 .card {
-  height: 270px;
-  max-width: 460px;
+  height: 19.28571rem;
+  max-width: 32.85714rem;
   width: 100%;
-  margin: 0 auto 50px;
+  margin: 0 auto 3.125em;
   position: relative;
   color: #fff;
-  font-size: 16px;
+  font-size: 1.14286em;
   line-height: normal;
 }
 
@@ -55,8 +55,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  border-radius: 15px;
-  padding: 30px;
+  border-radius: 0.9375em;
+  padding: 1.875em;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
@@ -67,8 +67,8 @@ body {
           transform-style: preserve-3d;
   -webkit-transition: all 0.8s cubic-bezier(0.71, 0.03, 0.56, 0.85);
   transition: all 0.8s cubic-bezier(0.71, 0.03, 0.56, 0.85);
-  -webkit-box-shadow: 0 20px 60px 0 rgba(14, 42, 90, 0.55);
-          box-shadow: 0 20px 60px 0 rgba(14, 42, 90, 0.55);
+  -webkit-box-shadow: 0 1.25em 3.75em 0 rgba(14, 42, 90, 0.55);
+          box-shadow: 0 1.25em 3.75em 0 rgba(14, 42, 90, 0.55);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -79,6 +79,9 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .card__side.front {
@@ -97,7 +100,7 @@ body {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  padding-top: 110px;
+  padding-top: 6.875em;
 }
 
 .card__side.back:after {
@@ -106,8 +109,8 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  top: 30px;
-  height: 50px;
+  top: 1.875em;
+  height: 3.125em;
 }
 
 .card.active .front {
@@ -140,16 +143,16 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 300px;
+  max-width: 18.75em;
 }
 
 .card__col.expires .card__result > span {
-  width: 30px;
+  width: 1.875em;
   display: inline-block;
 }
 
 .card__number {
-  font-size: 28px;
+  font-size: 1.75em;
   width: 100%;
 }
 
@@ -159,21 +162,21 @@ body {
 }
 
 .card__label {
-  font-size: 13px;
+  font-size: 0.8125em;
   line-height: normal;
-  margin-bottom: 5px;
+  margin-bottom: 0.38462em;
 }
 
 .card__result {
-  font-size: 16px;
-  letter-spacing: 2px;
+  font-size: 1em;
+  letter-spacing: 0.125em;
   text-transform: uppercase;
 }
 
 .card__cvv {
   background-color: #fff;
   color: #000;
-  padding: 16px;
+  padding: 1em;
   display: block;
   width: 100%;
   text-align: right;
@@ -269,18 +272,19 @@ body {
   cursor: pointer;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  outline: none;
 }
 
-.form__submit:hover {
+.form__submit:hover, .form__submit:focus {
   -webkit-box-shadow: 0px 8px 16px rgba(0, 128, 255, 0.3);
           box-shadow: 0px 8px 16px rgba(0, 128, 255, 0.3);
 }
 
 .chip {
-  height: 39px;
-  width: 48px;
+  height: 2.78571rem;
+  width: 3.42857rem;
   background-color: silver;
-  border-radius: 5px;
+  border-radius: 0.3125em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -289,11 +293,12 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
+  overflow: hidden;
 }
 
 .chip .hor {
   height: calc(100% / 3);
-  border-top: 1px solid #232323;
+  border-top: 0.07143rem solid #232323;
 }
 
 .chip .hor:first-child {
@@ -313,7 +318,7 @@ body {
 
 .chip .ver:before {
   content: "";
-  width: 1px;
+  width: 0.07143rem;
   background-color: #232323;
   position: absolute;
   height: 100%;
@@ -322,7 +327,7 @@ body {
 
 .chip .ver:after {
   content: "";
-  width: 1px;
+  width: 0.07143rem;
   background-color: #232323;
   position: absolute;
   height: calc(100% - (100% / 3));
@@ -331,7 +336,61 @@ body {
 }
 
 .logo > img {
-  max-height: 40px;
+  max-height: 2.5em;
   width: auto;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .wrapper {
+    padding: 2.14286em;
+    max-width: 34.64286rem;
+  }
+  .content {
+    padding: 2.14286em;
+  }
+  .card {
+    height: 17.85714rem;
+    max-width: 26.07143rem;
+    margin-bottom: 1.875em;
+  }
+  .card__side {
+    padding: 1.5625em;
+  }
+  .card__number {
+    font-size: 1.375em;
+  }
+  .card__result {
+    font-size: 0.875em;
+  }
+  .card__cvv {
+    font-size: 0.875em;
+  }
+  .form__input {
+    font-size: 1rem;
+  }
+  .form__submit {
+    font-size: 0.78571rem;
+  }
+}
+
+@media (max-width: 479px) {
+  html,
+  body {
+    font-size: 12px;
+  }
+  .wrapper {
+    width: 100%;
+    max-width: 380px;
+  }
+  .content {
+    padding: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border-radius: 0;
+  }
+  .card {
+    max-width: 100%;
+  }
 }
 /*# sourceMappingURL=style.css.map */

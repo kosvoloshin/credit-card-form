@@ -15,8 +15,12 @@ export const generateYears = () => {
     return arrYears;
 };
 
+export const generateRandomImage = (min, max) => {
+    return `./assets/images/cards/card-${Math.round(min + Math.random() * (max - min))}.jpg`;
+};
+
 export const cardLogo = num => {
-    const logoPath = "https://raw.githubusercontent.com/kosvoloshin/credit-card-form/master/src/Assets/images/";
+    const logoPath = "./assets/images/";
 
     switch (num) {
         case num.match(/^4/) && num:

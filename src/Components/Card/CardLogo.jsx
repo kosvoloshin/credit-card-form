@@ -1,5 +1,10 @@
 import React from "react";
-import { cardLogo } from "../Utils/utils";
+import PropTypes from "prop-types";
+import { cardLogo } from "../../Utils/utils";
+
+const propTypes = {
+    cardNumber: PropTypes.string.isRequired,
+};
 
 const CardLogo = ({ cardNumber }) => {
     return (
@@ -8,5 +13,7 @@ const CardLogo = ({ cardNumber }) => {
         </div>
     );
 };
+
+CardLogo.propTypes = propTypes;
 
 export default CardLogo;

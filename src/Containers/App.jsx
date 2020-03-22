@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Card from "../Components/Card";
-import Form from "../Components/Form";
+import Card from "../Components/Card/Card";
+import Form from "../Components/Form/Form";
+import { generateRandomImage } from "../Utils/utils";
 
 class App extends Component {
     state = {
@@ -11,7 +12,14 @@ class App extends Component {
         year: "",
         cvv: "",
         isFlip: false,
+        bgPath: "",
     };
+
+    componentDidMount() {
+        this.setState({
+            bgPath: generateRandomImage(1, 12),
+        });
+    }
 
     handlerSubmit = e => {
         e.preventDefault();
@@ -46,7 +54,7 @@ class App extends Component {
     };
 
     render() {
-        const { cardNumber, cardNumberMask, cardHolder, month, year, cvv, isFlip } = this.state;
+        const { cardNumber, cardNumberMask, cardHolder, month, year, cvv, isFlip, bgPath } = this.state;
 
         return (
             <div className="wrapper">
@@ -59,6 +67,7 @@ class App extends Component {
                         year={year}
                         cvv={cvv}
                         isFlip={isFlip}
+                        bgPath={bgPath}
                     />
                     <Form
                         handlerSubmit={this.handlerSubmit}
